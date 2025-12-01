@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.jsx
+import React from "react";
+import { CartProvider } from "./contexts/CartContext";
+import ProductCard from "./components/ProductCard";
+import CartView from "./components/CartView";
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartProvider>
+      <div style={{ display: "flex", gap: 24 }}>
+        <div>
+          <h1>Products</h1>
+          {sampleProducts.map((p) => <ProductCard key={p.id} product={p} />)}
+        </div>
+
+        <div>
+          <h1>Your Cart</h1>
+          <CartView />
+        </div>
+      </div>
+    </CartProvider>
   );
 }
-
-export default App;
