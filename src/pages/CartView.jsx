@@ -5,24 +5,14 @@ function CartView() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/products")
+    fetch("http://localhost:4000/userprod")
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
 
-  const cart = () => {
-    if (products.length === 0) {
-      return <p>No items found</p>;
-    } else {
-      return products.map(item => (
-        <ProductCard key={item.id} product={item} />
-      ));
-    }
-  };
-
   return (
     <div>
-      {cart()}
+      <ProductCard products={products} />
     </div>
   );
 }

@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <ProductCard/>
-      {/* <CartView /> */}
+      <CartView />
     
     </div>
   )
