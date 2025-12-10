@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function ProductCard({ products }) {
   if (!products || products.length === 0) {
     return <p>No items found</p>;
