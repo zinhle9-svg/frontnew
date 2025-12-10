@@ -6,16 +6,16 @@ export default function ProductView() {
  
 
   // find the selected product
-  const product = products.find(item => item.id === Number(id));
+  const products = products.find(item => item.id === id);
 
-  if (!product) return <p>Product not found</p>;
+  if (!products) return <p>Product not found</p>;
 
   return (
     <div>
-      <h2>{product.name}</h2>
-      <p>Price: R{product.price}</p>
-      <p>Category: {product.category}</p>
-      <p>Description: {product.description}</p>
+      <h2>{products.name}</h2>
+      <p>Price: R{products.price}</p>
+      <p>Category: {products.category}</p>
+      <p>Description: {products.description}</p>
     </div>
   );
 }
