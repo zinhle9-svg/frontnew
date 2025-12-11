@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import  React, {  useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import ProductCard from "./pages/ProductCard";
 import CartView from "./pages/CartView";
 import Home from "./pages/Home";
 
 function App() {
   const [products, setProducts] = useState([]);
- 
-
   useEffect(() => {
     fetch("http://localhost:4000/products")
       .then((res) => {
@@ -16,22 +14,36 @@ function App() {
       })
       .then((data) => setProducts(data))
   }, []);
+ const [cart, setCart] = useState([]);
+  const handleAddToCart = (item) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
 
+      if (existingItem) {
+        //update quantity
+        return prevCart.map(cartItem =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      } else {
+        // add new item
+        return [...prevCart, { ...item, quantity: 1 }];
+      }
+    });
+  };
+
+  if (!products || products.length === 0) {
+    return <p>No items found</p>;
+  }
   return (
-    <BrowserRouter>
-      <div>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/product"
-            element={
-              <ProductCard products={products} />
-            }
-          />
-          <Route path="/cartView" element={<CartView />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={ <ProductCard products={products} /> }/>
+          <Route path="/cartview" element={<CartView />} />
+          
         </Routes>
-      </div>
-    </BrowserRouter>
+ 
   );
 }
 

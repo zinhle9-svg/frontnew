@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 
 export default function ProductCard({ products }) {
@@ -12,8 +12,13 @@ export default function ProductCard({ products }) {
         <div key={item.id}>
           <h3>{item.name}</h3>
           <p>R{item.price}</p>
+          <p>{item.category} </p>
+          <p>{item.image} </p>
+          <p>{item.description} </p>
+            <button onclick={handleAddtocart}>Add to cart</button>
         </div>
       ))}
+    
     </div>
   );
 }

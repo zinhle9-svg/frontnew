@@ -2,20 +2,8 @@ import React from "react";
 import cover from "../image/cover page.webp";
 
 function Home() {
-  return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>Welcome to Zee's Store</h1>
 
-      <img 
-        src={cover} 
-        alt="welcome" 
-        style={styles.image}
-      />
-    </div>
-  );
-}
-
-const styles = {
+  const styles = {
   container: {
     textAlign: "center",
     padding: "20px",
@@ -31,5 +19,16 @@ const styles = {
     boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
   },
 };
+  return (
+    <div style={styles.container}>
+      <h1 style={styles.heading}>Welcome to Zee's Store</h1>
 
+      <img 
+        src={cover} 
+        alt="welcome" 
+        style={styles.image}
+      />
+    </div>
+  );
+}
 export default Home;
