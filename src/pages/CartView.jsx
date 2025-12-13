@@ -9,6 +9,26 @@ function CartView() {
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
+function CartView({ cart, setCart }) {
+  if (cart.length === 0) {
+    return <p>Your cart is empty</p>;
+  }
+
+  return (
+    <div>
+      <h2>Your Cart</h2>
+      {cart.map(item => (
+        <div key={item.id}>
+          <p>{item.name}</p>
+          <p>Qty: {item.quantity}</p>
+          <p>Price: R{item.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default CartView;
 
   return (
     <div>

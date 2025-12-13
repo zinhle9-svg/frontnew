@@ -36,12 +36,13 @@ function App() {
   if (!products || products.length === 0) {
     return <p>No items found</p>;
   }
+
   return (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={ <ProductCard products={products} /> }/>
           <Route path="/cartview" element={<CartView />} />
-          
+           <CartView cart={cart} setCart={setCart} />
         </Routes>
  
   );
