@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import ProductCard from "./pages/ProductCard";
 import CartView from "./pages/CartView";
 import Home from "./pages/Home";
+import "./css/index.css";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -41,8 +42,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={ <ProductCard products={products} /> }/>
-          <Route path="/cartview" element={<CartView />} />
-           <CartView cart={cart} setCart={setCart} />
+          <Route path="/cartview" element={<CartView  cart={cart}/>} />
+         <Route></Route>
         </Routes>
  
   );
