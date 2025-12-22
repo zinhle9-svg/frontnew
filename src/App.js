@@ -4,6 +4,7 @@ import ProductCard from "./pages/ProductCard";
 import CartView from "./pages/CartView";
 import Home from "./pages/Home";
 import "./css/index.css";
+import IndProductView from './pages/IndProductView';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -43,7 +44,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={ <ProductCard products={products} /> }/>
           <Route path="/cartview" element={<CartView  cart={cart}/>} />
-         <Route></Route>
+         <Route path="/Indview" element={<IndProductView />}></Route>
         </Routes>
  
   );
