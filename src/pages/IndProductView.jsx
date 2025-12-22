@@ -5,7 +5,6 @@
 // export default function ProductView() {
 //   const { id } = useParams();
 
-//   // find the selected product
 //   const product = products.find(item => item.id === id);
   
 //   if (!product) {

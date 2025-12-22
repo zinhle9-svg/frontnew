@@ -1,5 +1,7 @@
 import React from "react";
 import cover from "../image/cover page.webp";
+import { Link } from "react-router-dom";
+
 
 function Home() {
   return (
@@ -21,12 +23,10 @@ function Home() {
 
           <div className="flex justify-center md:justify-start gap-4">
             <button className="bg-[#E88DA6] text-white px-7 py-3 rounded-2xl font-semibold hover:bg-[#D97992] transition shadow-md">
-              Shop Now
+             <Link to="/products"> Shop Now</Link>
             </button>
 
-            <button className="border-2 border-[#E8B4C3] text-[#5A2A2A] px-7 py-3 rounded-2xl font-semibold hover:bg-[#FBE4EA] transition">
-              Learn More
-            </button>
+        
           </div>
         </div>
 

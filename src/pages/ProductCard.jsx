@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ products }) {
   if (!products || products.length === 0) {
@@ -20,7 +21,7 @@ export default function ProductCard({ products }) {
           <img
             src={`http://localhost:4000/${item.image}`}
             alt={item.name}
-            className="w-20 h-35 object-cover"
+            className="w-25 h-30 object-cover"
           />
 
           {/* Content */}
@@ -41,11 +42,22 @@ export default function ProductCard({ products }) {
               {item.description}
             </p>
 
-            <button
-              className="mt-auto bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Add to cart
-            </button>
+            {/* Buttons */}
+            <div className="mt-auto flex gap-3">
+              <Link
+                to="/cartview"
+                className="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Add to cart
+              </Link>
+
+              <Link
+                to={`/product/${item.id}`}
+                className="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              >
+                View
+              </Link>
+            </div>
           </div>
         </div>
       ))}
